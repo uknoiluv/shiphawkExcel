@@ -42,3 +42,7 @@
 <md-autocomplete md-selected-item="selectedItem" md-search-text="searchText" md-items="item in vm.getMatches(searchText)" md-item-text="item.display">
     <span md-highlight-text="searchText">{{item.display}}</span>
 </md-autocomplete>
+
+<button data-ng-click="vm.addShippingQuotes()">add shipping quotes</button>
+
+
