@@ -3,12 +3,12 @@
 
 angular.module('appxls')
 .controller('productsController',
-['$scope', '$q', 'productService', productsController]);
+['$scope', '$q', 'productService', 'shiphawkService', productsController]);
 
 /**
 * Controller constructor.
 */
-function productsController($scope, $q, productService) {
+function productsController($scope, $q, productService, shiphawkService) {
 var vm = this;
 
 // suppliers
@@ -61,7 +61,21 @@ function init() {
 }
 
 function getMatches(search){
-  return [{value: 'iphone', display: 'iphone'}, {value: 'iphone 6', display: 'iphone 6'}, {value: 'iphone 5', display: 'iphone 5'}];
+//   shiphawkService.getJobs(search).success(function(data){
+//     console.log('hello', data);
+//
+//   }).error(function(data){
+//     console.log('cores', data);
+//
+//   });
+
+  return [{value: 'queen mattress', display: 'queen mattress'},
+    {value: 'king mattress', display: 'king mattress'},
+    {value: 'mattress', display: 'mattress'},
+    {value: 'twin mattress', display: 'twin mattress'}
+  ];
+
+
 }
 
 /**
