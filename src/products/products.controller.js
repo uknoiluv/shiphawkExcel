@@ -23,6 +23,7 @@ vm.products = [];
 vm.clearFilters = clearFilters;
 vm.addProducts = addProducts;
 vm.refreshProductList = refreshProductList;
+vm.getMatches = getMatches;
 
 /** *********************************************************** */
 
@@ -56,6 +57,10 @@ function init() {
     console.log('category changed to ' + newValue);
     refreshProductList();
   });
+}
+
+function getMatches(search){
+  return [{value: 'iphone', display: 'iphone'}, {value: 'iphone 6', display: 'iphone 6'}, {value: 'iphone 5', display: 'iphone 5'}];
 }
 
 /**
