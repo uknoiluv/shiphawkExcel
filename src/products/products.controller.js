@@ -58,7 +58,20 @@ function init() {
     console.log('category changed to ' + newValue);
     refreshProductList();
   });
+
+  $scope.$watch('vm.selectedItem', function (newValue, oldValue) {
+      if(newValue == 'queen mattress'){
+        vm.height = 82;
+        vm.length = 60;
+        vm.width = 20;
+        vm.weight = 60;
+      }
+
+  });
 }
+
+
+
 
 function getMatches(search){
 //   shiphawkService.getJobs(search).success(function(data){
