@@ -22,6 +22,7 @@ vm.products = [];
 
 vm.clearFilters = clearFilters;
 vm.addProducts = addProducts;
+vm.addShippingQuotes = addShippingQuotes;
 vm.refreshProductList = refreshProductList;
 vm.getMatches = getMatches;
 
@@ -111,6 +112,29 @@ function addProducts(){
     }
   });
 
+}
+
+
+function addShippingQuotes() {
+  console.log('hit');
+  var shippingInfo = [];
+  var shippingData = [];
+  shippingInfo.push(vm.height);
+  shippingInfo.push(vm.width);
+  shippingInfo.push(vm.length);
+  shippingInfo.push(vm.pounds);
+  shippingInfo.push(vm.cost);
+  
+  shippingData.push(shippingInfo);
+
+  Office.context.document.bindings.addFromNamedItemAsync('A1:E1', 'matrix', {id:'invoiceLineItems'}, function (asyncResult) {
+    if (asyncResult.status == Office.AsyncResultStatus.Succeeded) {
+      // add the data
+      Office.select('bindings#invoiceLineItems').setDataAsync(shippingData, {coercionType:'matrix'}, function(asyncResult){
+      });
+
+    }
+  });   
 }
 
 /**
