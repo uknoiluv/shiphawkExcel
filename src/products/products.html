@@ -42,17 +42,3 @@
 <md-autocomplete md-selected-item="selectedItem" md-search-text="searchText" md-items="item in vm.getMatches(searchText)" md-item-text="item.display">
     <span md-highlight-text="searchText">{{item.display}}</span>
 </md-autocomplete>
-
-<md-list>
-  <md-item data-ng-repeat="product in vm.products">
-    <md-item-content>
-      <div>
-        <md-checkbox data-ng-model="product.isSelected"
-                     class="md-primary" aria-label="product.ProductName"></md-checkbox>
-      </div>
-      <div class="md-tile-content">
-        <h3>{{product.ProductName}}</h3>
-      </div>
-    </md-item-content>
-  </md-item>
-</md-list>
